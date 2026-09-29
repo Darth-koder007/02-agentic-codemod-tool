@@ -1,0 +1,31 @@
+docker-compose.yml
+  s_f0c6a093b18fbc::t_5b799b640199a7 1-13
+src/llm/types.ts
+  s_f0c6a093b18fbc::t_fbfe0fadbc8fa1 1-16
+src/llm/anthropic-client.ts
+  s_f0c6a093b18fbc::t_b22a6171c48b67 1-29
+src/llm/ollama-client.ts
+  s_f0c6a093b18fbc::t_c33e3202303b32 1-36
+src/llm/create-client.test.ts
+  s_f0c6a093b18fbc::t_0da47217451921 1-20
+src/llm/create-client.ts
+  s_f0c6a093b18fbc::t_8af78189674f9d 1-41
+PLAN.md
+  s_f0c6a093b18fbc::t_eb05cdb05e5d14 29,31-33
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "eb7b5a5ee626eb454b831e3c5845ed60b08ebd5f",
+  "prompts": {},
+  "sessions": {
+    "s_f0c6a093b18fbc": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "cdf59d10-8ac1-40c5-8e78-59b7400789f3",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Darth-koder007 <vj2010sn@gmail.com>"
+    }
+  }
+}
