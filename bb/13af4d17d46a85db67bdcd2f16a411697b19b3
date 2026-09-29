@@ -1,0 +1,28 @@
+PLAN.md
+  s_f0c6a093b18fbc::t_fd73115f280779 16-20
+  s_f0c6a093b18fbc::t_c9e3947ba9cc64 1-15,21-84
+.husky/pre-commit
+  s_f0c6a093b18fbc::t_d62afe389aae83 1
+package.json
+  s_f0c6a093b18fbc::t_ea3fde8448f10b 1-57
+pnpm-lock.yaml
+  s_f0c6a093b18fbc::t_81c4e62b1e6f37 1-3191
+src/instruction-parser.test.ts
+  s_f0c6a093b18fbc::t_98378cef5cb308 1-76
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "bb13af4d17d46a85db67bdcd2f16a411697b19b3",
+  "prompts": {},
+  "sessions": {
+    "s_f0c6a093b18fbc": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "cdf59d10-8ac1-40c5-8e78-59b7400789f3",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Darth-koder007 <vj2010sn@gmail.com>"
+    }
+  }
+}
