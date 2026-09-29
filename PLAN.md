@@ -26,11 +26,11 @@ A general-purpose tool: a plain-English instruction ("convert all class componen
 - [x] `convert-class-to-function-component` is **deliberately narrow** — only a class with (at most) a trivial constructor (`super(props)` + one `this.state = {...}`) and a single `render()` method, no other lifecycle/instance methods, single-key `setState` calls only. Anything else bails out with a specific reason rather than guessing (verified with a fixture that has `componentDidMount` and confirms the bail message names it). This is a real, stated scope limit, not a hidden gap — see the README's design-decisions section (M2.9) for why: this is a "canned" transform, and a canned transform that guesses wrong on complex cases is worse than one that honestly declines.
 - **Acceptance:** one golden-file fixture per transform (`transforms.test.ts`, 7 tests), asserting exact output text, zero LLM involved. 6/7 tests passed on the first run; the class-conversion test needed two real fixes found by actually running it: `extends Component<Props>` (generic type args) wasn't recognized because the check compared the full heritage-clause text instead of just the base expression, and a `setState({ count: this.state.count + 1 })` call wasn't rewritten because the replacement used text captured _before_ an earlier substitution pass had already changed the very substring it was trying to match (reordering the two passes fixed it — and the `this.state.X` pass still catches the reference wherever it lands afterward). Also caught and fixed a wrong ts-morph type guard (`isReferenceFindable` doesn't imply `.rename()` exists; `isRenameable` does) via a real `tsc` error, not a guess.
 
-### M2.3 — LLM client abstraction
+### M2.3 — LLM client abstraction — done
 
-- [ ] Reuse the same interface shape as Project 1's M1.3: `generate(prompt, schema?) -> result`, with Ollama (local, default) and Anthropic (optional) implementations, provider selected via env var
-- [ ] Local dev runs entirely against the Dockerized Ollama instance — no key, no cost, nothing to get stuck on while iterating on Tier 2
-- **Acceptance:** the same instruction produces a proposed transform against both providers with only the env var changed.
+- [x] Same interface shape as Project 1's M1.3 (`LlmClient.generate({prompt, system}) -> GenerateResult`), Ollama default + Anthropic optional, provider/model selected via `LLM_PROVIDER`/`LLM_MODEL` env vars — a fresh copy in this repo, not a cross-repo import, since this project is standalone (see the plan's own "doesn't require Project 0")
+- [x] Local dev runs against a Dockerized Ollama instance on host port **11436** — distinct from Project 1's 11435 and the OS default 11434, so both portfolio projects' containers (and any native install) can run side by side without colliding
+- **Acceptance:** verified live, not just structurally — `docker compose up -d`, pulled `llama3.2:3b` (same model choice as Project 1, same reasoning: 1b hallucinated there in manual testing), called `createLlmClient().generate(...)` with zero env config and got a real completion back from the container.
 
 ### M2.4 — LLM-in-the-loop (Tier 2)
 
