@@ -1,0 +1,38 @@
+src/run-codemod.test.ts
+  s_f0c6a093b18fbc::t_05e79c0b80f7e6 67-72
+  s_f0c6a093b18fbc::t_694838836e3aab 17-22,26,33,39,50-63
+  s_f0c6a093b18fbc::t_74b0b15092379c 1-16,23-25,27-32,34-38,40-49,64-66,73-87
+PLAN.md
+  s_f0c6a093b18fbc::t_82830635ecc3de 43,45-48,50,52
+  s_f0c6a093b18fbc::t_2446a3ecacd61c 53-54
+src/run-codemod.ts
+  s_f0c6a093b18fbc::t_3efb5e689e40a7 1,3-6,8-72,80-82,88-91,98-122
+  s_f0c6a093b18fbc::t_7be071463ad232 73-79
+  s_f0c6a093b18fbc::t_3d1962a5fa356f 2,7
+  s_f0c6a093b18fbc::t_811e46ea258af4 84,86-87
+  s_f0c6a093b18fbc::t_b41120c22d6482 83,85
+  s_f0c6a093b18fbc::t_7a397c956d3157 92-97
+  s_f0c6a093b18fbc::t_0d7f9a943d27cb 123-130
+src/cli.ts
+  s_f0c6a093b18fbc::t_b2951a964a057c 1-87
+src/validate-change.ts
+  s_f0c6a093b18fbc::t_dd6a25ac44955a 20
+fixtures/tier2-target-3.ts
+  s_f0c6a093b18fbc::t_7b9ee9371dd066 1-3
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "2cf1a09a166f7b66115fdc5c3f3c4aeb519846e7",
+  "prompts": {},
+  "sessions": {
+    "s_f0c6a093b18fbc": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "cdf59d10-8ac1-40c5-8e78-59b7400789f3",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Darth-koder007 <vj2010sn@gmail.com>"
+    }
+  }
+}
