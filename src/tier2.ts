@@ -13,6 +13,8 @@ export interface Tier2Result {
   status: "success" | "no-safe-transform";
   diff?: string;
   reason?: string;
+  /** How many LLM calls this took (1 = succeeded first try, 2 = needed the retry, or exhausted both and gave up). Exposed so the eval harness can report the retry-then-give-up rate the plan asks for, not just success/failure. */
+  attempts: number;
 }
 
 function stripFences(text: string): string {
@@ -67,7 +69,11 @@ export async function runTier2(
     });
 
     if (result.typeChecks && result.testsPassed !== false) {
-      return { status: "success", diff: createPatch(filePath, originalText, proposedText) };
+      return {
+        status: "success",
+        diff: createPatch(filePath, originalText, proposedText),
+        attempts: attempt + 1,
+      };
     }
 
     lastFailureSummary = summarizeFailure(result);
@@ -76,5 +82,6 @@ export async function runTier2(
   return {
     status: "no-safe-transform",
     reason: `No safe transform found after 2 attempts. Last validation failure: ${lastFailureSummary}`,
+    attempts: 2,
   };
 }

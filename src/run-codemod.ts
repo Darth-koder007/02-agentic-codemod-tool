@@ -19,6 +19,8 @@ export interface CodemodOutcome {
   tier: 1 | 2;
   diff?: string;
   reason?: string;
+  /** Only set for Tier 2 — how many LLM calls it took (1 or 2; see tier2.ts). */
+  attempts?: number;
 }
 
 function applyTier1(
@@ -77,12 +79,14 @@ export async function runCodemodOnFile(
           file: filePath,
           status: "success",
           tier: 2,
+          attempts: result.attempts,
           ...(result.diff ? { diff: result.diff } : {}),
         }
       : {
           file: filePath,
           status: "no-safe-transform",
           tier: 2,
+          attempts: result.attempts,
           ...(result.reason ? { reason: result.reason } : {}),
         };
   }
