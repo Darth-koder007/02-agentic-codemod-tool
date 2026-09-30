@@ -1,0 +1,23 @@
+src/run-codemod.ts
+  s_f0c6a093b18fbc::t_b7c8e465e8efb8 82,89
+  s_f0c6a093b18fbc::t_66516f2c02fb55 22-23
+src/tier2.ts
+  s_f0c6a093b18fbc::t_777ec8fb1f8fb0 16-17
+  s_f0c6a093b18fbc::t_c62e70147af3ae 72-76,85
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "4b81c0b9ece496d6ff04818eabb739ccd748e870",
+  "prompts": {},
+  "sessions": {
+    "s_f0c6a093b18fbc": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "cdf59d10-8ac1-40c5-8e78-59b7400789f3",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Darth-koder007 <vj2010sn@gmail.com>"
+    }
+  }
+}
