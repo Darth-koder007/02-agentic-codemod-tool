@@ -92,8 +92,9 @@ export function convertClassToFunctionComponent(
     .join("\n  ");
 
   const className = target.getName()!;
+  const propsType = getPropsTypeName(target);
   const newFunctionText = [
-    `function ${className}(props) {`,
+    `function ${className}(props${propsType ? `: ${propsType}` : ""}) {`,
     stateHooks ? `  ${stateHooks}` : "",
     `  ${bodyText}`,
     `}`,
@@ -112,6 +113,11 @@ function extendsComponent(cls: ClassDeclaration): boolean {
   // only the base expression before any "<".
   const base = (cls.getExtends()?.getExpression().getText() ?? "").trim();
   return base === "Component" || base === "React.Component";
+}
+
+function getPropsTypeName(cls: ClassDeclaration): string | undefined {
+  const typeArgs = cls.getExtends()?.getTypeArguments();
+  return typeArgs?.[0]?.getText();
 }
 
 type StateExtraction = { ok: true; fields: StateField[] } | { ok: false; skipReason: string };

@@ -6,7 +6,7 @@ interface Matcher {
   extractParams: (match: RegExpMatchArray) => Record<string, string>;
 }
 
-const QUOTED = "[`'\"]?([\\w.-]+)[`'\"]?";
+const QUOTED = "[`'\"]?([\\w./-]+)[`'\"]?";
 
 const MATCHERS: Matcher[] = [
   {

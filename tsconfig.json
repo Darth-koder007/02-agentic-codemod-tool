@@ -15,5 +15,6 @@
     "forceConsistentCasingInFileNames": true,
     "noEmit": true
   },
-  "include": ["src", "evals"]
+  "include": ["src", "evals"],
+  "exclude": ["evals/targets"]
 }

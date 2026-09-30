@@ -1,0 +1,9 @@
+{
+  "date": "2026-09-30",
+  "providerModel": "ollama:(default)",
+  "caseCount": 24,
+  "tier1SuccessRate": 1,
+  "tier2SuccessRate": 0.861,
+  "correctRefusalRate": 0.852,
+  "tier2RetryRate": 0.305
+}

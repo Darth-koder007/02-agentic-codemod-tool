@@ -77,7 +77,7 @@ describe("convertClassToFunctionComponent", () => {
 
     expect(result.applied).toBe(true);
     const text = sourceFile.getFullText();
-    expect(text).toContain("function Counter(props) {");
+    expect(text).toContain("function Counter(props: CounterProps) {");
     expect(text).toContain("const [count, setCount] = useState(0);");
     expect(text).toContain("{props.label}: {count}");
     expect(text).toContain("setCount(count + 1)");
