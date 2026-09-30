@@ -53,12 +53,12 @@ A general-purpose tool: a plain-English instruction ("convert all class componen
 - [x] Any validation failure reverts automatically — `validateChange` writes the proposal, checks it, and restores the original in a `finally` block unconditionally, regardless of outcome
 - **Acceptance, and a real incident this milestone's own tests surfaced:** two _different_ test files (`validate-change.test.ts` and an earlier version of `run-codemod.test.ts`) independently targeted the same fixture file. Vitest runs different test files concurrently by default, so their write-then-restore cycles raced each other — one test's "original" snapshot was actually mid-flight content from the other, and the fixture ended up permanently stuck in a broken state on disk, discovered only because a later `tsc`/`eslint` run failed on it. This is a direct, literal demonstration of exactly the failure mode M2.6 exists to prevent — just happening to this project's own tests rather than a codemod's target file. Fixed by giving every test that exercises the sandbox its own dedicated fixture (now three near-identical `tier2-target*.ts` files, deliberately not deduplicated — shared mutable state across concurrent tests was the actual bug), then verified by running the full suite three times in a row and confirming all three fixtures stayed byte-identical after every run.
 
-### M2.7 — Golden-file test suite
+### M2.7 — Golden-file test suite — done (already satisfied by M2.1-M2.6)
 
-- [ ] Fixture per canned transform (instruction + input → expected output), exact match
-- [ ] Fixture per Tier 2 scenario using a recorded LLM response in CI (no live calls to either provider in CI)
-- [ ] At least one adversarial fixture: an instruction that should produce "no safe transform found"
-- **Acceptance:** full suite is deterministic in CI, zero live LLM calls, includes the failure-path case.
+- [x] One fixture per canned transform, exact-match output (`transforms.test.ts`)
+- [x] Tier 2 scenarios use a hand-written deterministic fake `LlmClient` (`tier2.test.ts`, `run-codemod.test.ts`) — same reasoning as Project 1's M1.7: simpler than a record/replay mechanism, zero flakiness risk, exercises the identical `LlmClient` interface the real clients implement
+- [x] Adversarial fixture present: `tier2.test.ts`'s "gives up honestly after two failed attempts" case
+- **Acceptance:** verified directly, same method as Project 1 — stopped the Ollama container entirely and re-ran the full suite; all 33 tests still pass. CI never needs Ollama or an Anthropic key to pass.
 
 ### M2.8 — Eval harness
 
