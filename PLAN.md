@@ -40,17 +40,18 @@ A general-purpose tool: a plain-English instruction ("convert all class componen
 - [x] "Existing tests run against the copy" is **scoped, not a universal auto-detector**: `validateChange` accepts an optional `testCommand` (a real shell command the caller supplies); type-checking alone gates the result when omitted. Auto-discovering and safely running an arbitrary project's test setup for one temporarily-swapped file is a much larger problem than this milestone's scope — stated here rather than silently narrowed.
 - **Acceptance:** verified live against real Ollama with genuinely unscripted instructions (not fixtures written to match a known-good answer) — "add JSDoc comments explaining this function" succeeded on the first attempt with correct, real JSDoc; a deliberately-impossible instruction ("call a function that doesn't exist, no import") correctly exhausted both retries and returned `no-safe-transform` with the real type error named. The target fixture file was confirmed byte-identical on disk after both runs. 7 tests (`validate-change.test.ts`, `tier2.test.ts`) cover the same paths deterministically with a fake `LlmClient`.
 
-### M2.5 — Diff/review UX
+### M2.5 — Diff/review UX — done
 
-- [ ] `codemod run "<instruction>" --path <glob>` prints a unified diff and a plain-English summary of what changed and why, defaults to dry-run
-- [ ] `--apply` writes the change only after the user confirms (or non-interactively with `--yes`, for CI use)
-- **Acceptance:** running twice without `--apply` never modifies files; the diff shown matches exactly what `--apply` writes.
+- [x] `codemod run "<instruction>" --path <path>` (file or directory — see the scope note below) prints a unified diff plus status/reason per file, defaults to dry-run
+- [x] `--apply` requires `--yes` to actually write; without it, prints how many files _would_ change and explains how to proceed, writing nothing
+- [x] **Scope note, stated plainly:** `--path` accepts a literal file or directory (recursively, skipping `node_modules`/`dist`), not full glob syntax (`src/**/*.tsx`). A real glob implementation is a small, bounded addition if this tool grows beyond portfolio scope — not worth a dependency for what's demonstrated here.
+- **Acceptance:** verified against a real scratch file outside this repo (`/tmp/codemod-scratch`), not just fixtures — confirmed a dry-run leaves the file byte-identical, `--apply` without `--yes` also leaves it untouched (prints the "would change" notice instead), and `--apply --yes` writes exactly the diff that was shown beforehand.
 
-### M2.6 — Safety rails
+### M2.6 — Safety rails — done
 
-- [ ] Post-transform validation pipeline (type-check, run affected tests) is a reusable step, not duplicated between Tier 1 and Tier 2 — Tier 1 transforms go through it too, since canned doesn't mean infallible
-- [ ] On any validation failure, automatic revert of the in-progress change, clear error surfaced to the user
-- **Acceptance:** deliberately introduce a canned transform bug in a test scenario and confirm the pipeline catches it before `--apply` would write it.
+- [x] One shared validation pipeline (`validate-change.ts`'s `validateChange`, reused by both tiers via `run-codemod.ts`) — Tier 1 transforms go through the exact same type-check gate as Tier 2, not a shortcut
+- [x] Any validation failure reverts automatically — `validateChange` writes the proposal, checks it, and restores the original in a `finally` block unconditionally, regardless of outcome
+- **Acceptance, and a real incident this milestone's own tests surfaced:** two _different_ test files (`validate-change.test.ts` and an earlier version of `run-codemod.test.ts`) independently targeted the same fixture file. Vitest runs different test files concurrently by default, so their write-then-restore cycles raced each other — one test's "original" snapshot was actually mid-flight content from the other, and the fixture ended up permanently stuck in a broken state on disk, discovered only because a later `tsc`/`eslint` run failed on it. This is a direct, literal demonstration of exactly the failure mode M2.6 exists to prevent — just happening to this project's own tests rather than a codemod's target file. Fixed by giving every test that exercises the sandbox its own dedicated fixture (now three near-identical `tier2-target*.ts` files, deliberately not deduplicated — shared mutable state across concurrent tests was the actual bug), then verified by running the full suite three times in a row and confirming all three fixtures stayed byte-identical after every run.
 
 ### M2.7 — Golden-file test suite
 

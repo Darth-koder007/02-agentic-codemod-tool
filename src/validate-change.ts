@@ -17,7 +17,7 @@ export interface ValidationResult {
   diagnostics: string[];
 }
 
-function findNearestTsConfig(startDir: string): string | undefined {
+export function findNearestTsConfig(startDir: string): string | undefined {
   let dir = startDir;
   for (let i = 0; i < 10; i++) {
     const candidate = join(dir, "tsconfig.json");
