@@ -1,0 +1,105 @@
+evals/targets/t1-08-extract-literal-string-success.ts
+  s_f0c6a093b18fbc::t_48e729bbf636af 1-7
+evals/targets/t2-12-missing-type-import.ts
+  s_f0c6a093b18fbc::t_8ed22cfbe992b5 1-3
+evals/targets/t1-09-convert-class-success.tsx
+  s_f0c6a093b18fbc::t_5edd8cf31a434b 1-20
+evals/targets/t1-04-import-rename-unsafe.ts
+  s_f0c6a093b18fbc::t_44933ac5e0e3f5 1-3
+evals/targets/t1-01-rename-fn-success.ts
+  s_f0c6a093b18fbc::t_8280f2a92308fb 1-5
+evals/targets/t1-05-jsx-prop-success.tsx
+  s_f0c6a093b18fbc::t_19a9ae68590ccd 1-15
+evals/targets/t1-07-extract-literal-numeric-success.ts
+  s_f0c6a093b18fbc::t_381518464d55f5 1-11
+evals/targets/t2-03-arrow-fn.ts
+  s_f0c6a093b18fbc::t_70d4d8a7b888ef 1-3
+src/transforms/transforms.test.ts
+  s_f0c6a093b18fbc::t_4a7cd30ae9682c 80
+evals/targets/t2-10-uninstalled-package.ts
+  s_f0c6a093b18fbc::t_628996edbcb44c 1-3
+src/instruction-parser.ts
+  s_f0c6a093b18fbc::t_d4188945f443bc 9
+evals/targets/t1-10-convert-class-not-applicable.tsx
+  s_f0c6a093b18fbc::t_38f6d100c85870 1-11
+evals/targets/t1-06-jsx-prop-not-applicable.tsx
+  s_f0c6a093b18fbc::t_85f7210087c990 1-14
+evals/targets/t2-09-nonexistent-api.ts
+  s_f0c6a093b18fbc::t_3ac59c7b4b533e 1-3
+evals/targets/t1-03-math-new.ts
+  s_f0c6a093b18fbc::t_756f20b16ce6dd 1-3
+evals/targets/t1-11-rename-const-success.ts
+  s_f0c6a093b18fbc::t_8506641998835f 1-5
+evals/targets/t1-12-jsx-prop-unsafe.tsx
+  s_f0c6a093b18fbc::t_5dd9f1311a42e6 1-14
+evals/targets/t2-07-optional-param.ts
+  s_f0c6a093b18fbc::t_084d6a3b168f2d 1-3
+evals/run-eval.ts
+  s_f0c6a093b18fbc::t_89b72171d811cb 1-5,7-13,24-27,29-31,37-47,49-57,64,101-102,104,108,110,114-120,129-134,139-141,143-145,147-149,155-156,158-159,161-162,164-166,168-170
+  s_f0c6a093b18fbc::t_9399a2c6b0110d 6,14-23,28,48,58-63,99-100,103,106,111-113,121,123,151-153
+  s_f0c6a093b18fbc::t_1bb78e16e3ef1d 65-98,105,107,109,122,124-128,135-138,142,146,150,154,157,160,163,167
+  s_f0c6a093b18fbc::t_f26c1460783d26 32-36
+  s_f0c6a093b18fbc::t_23f6f9c2769f31 171-176
+evals/targets/t2-05-rename-loop-var.ts
+  s_f0c6a093b18fbc::t_87f27f144bf26f 1-7
+evals/targets/t2-11-undeclared-var.ts
+  s_f0c6a093b18fbc::t_f6cdcdce0df34c 1-3
+evals/targets/t2-02-validation.ts
+  s_f0c6a093b18fbc::t_6a2acf0414a409 1-3
+evals/targets/t1-04-math-real.ts
+  s_f0c6a093b18fbc::t_8ebc5df8fe556a 1-3
+evals/targets/t2-08-array-methods.ts
+  s_f0c6a093b18fbc::t_36a2f8726c64df 1-7
+evals/baseline.json
+  s_f0c6a093b18fbc::t_659d50cb82f138 1,3-4,9
+  s_f0c6a093b18fbc::t_0df5cddd94233f 2
+  s_f0c6a093b18fbc::t_77c53a37f42f11 5
+  s_f0c6a093b18fbc::t_1624705f34c4f5 6-8
+evals/cases.ts
+  s_f0c6a093b18fbc::t_77f7932b83e749 1-213
+  s_f0c6a093b18fbc::t_6b9697d7a7b37e 214-218
+src/transforms/convert-class-to-function-component.ts
+  s_f0c6a093b18fbc::t_a2034a0c6994e9 118-122
+  s_f0c6a093b18fbc::t_ba2bb7d175e587 95,97
+evals/targets/t2-04-try-catch.ts
+  s_f0c6a093b18fbc::t_e2a291fbef265b 1-3
+evals/results.md
+  s_f0c6a093b18fbc::t_0df5cddd94233f 5
+  s_f0c6a093b18fbc::t_1624705f34c4f5 8,12,16,20,22-29
+  s_f0c6a093b18fbc::t_659d50cb82f138 1-4,6-7,9-11,13-15,17-19,21
+evals/targets/t1-02-rename-fn-not-applicable.ts
+  s_f0c6a093b18fbc::t_aec9e0d679493e 1-3
+evals/targets/t1-03-import-rename-success.ts
+  s_f0c6a093b18fbc::t_ac26bed0c0c3ba 1-3
+evals/targets/t2-01-jsdoc.ts
+  s_f0c6a093b18fbc::t_2a60ce073cfb29 1-3
+evals/targets/t2-06-extract-helper.ts
+  s_f0c6a093b18fbc::t_8055603bdee014 1-11
+tsconfig.json
+  s_f0c6a093b18fbc::t_e46eda6ca7a5a3 18-19
+package.json
+  s_f0c6a093b18fbc::t_eab3688d467f30 29,36
+PLAN.md
+  s_f0c6a093b18fbc::t_7041a8dfcdca65 63-73
+  s_f0c6a093b18fbc::t_b78258b1a9dbd5 74
+evals/targets/t1-03-math-old.ts
+  s_f0c6a093b18fbc::t_f8496824184af2 1-3
+pnpm-lock.yaml
+  s_f0c6a093b18fbc::t_3b06ae71002b26 33-35,54-56,755-757,982-984,1484-1487,2178-2181,2434-2435,2959-2960
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "338bd2345833b06e932f1605eb5172089384cfa5",
+  "prompts": {},
+  "sessions": {
+    "s_f0c6a093b18fbc": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "cdf59d10-8ac1-40c5-8e78-59b7400789f3",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Darth-koder007 <vj2010sn@gmail.com>"
+    }
+  }
+}
