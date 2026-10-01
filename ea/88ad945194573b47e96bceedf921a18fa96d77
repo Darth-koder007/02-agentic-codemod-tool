@@ -1,0 +1,21 @@
+PLAN.md
+  s_f0c6a093b18fbc::t_b2325340781625 76-83
+README.md
+  s_f0c6a093b18fbc::t_bd18faa9f6bb35 1-176
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "ea88ad945194573b47e96bceedf921a18fa96d77",
+  "prompts": {},
+  "sessions": {
+    "s_f0c6a093b18fbc": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "cdf59d10-8ac1-40c5-8e78-59b7400789f3",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Darth-koder007 <vj2010sn@gmail.com>"
+    }
+  }
+}
